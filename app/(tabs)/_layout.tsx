@@ -23,7 +23,7 @@ const _layout = () => {
         (<Ionicons name='bookmark' size={28} color={color}/>)}}/>
         <Tabs.Screen name='search'        
         options={{tabBarIcon:({color})=>
-        (   <View style={{backgroundColor:'#ff0f7b',paddingHorizontal:10,paddingVertical:10,borderRadius:50}}>
+        (   <View style={{backgroundColor:Colors.black,paddingHorizontal:10,paddingVertical:10,borderRadius:50}}>
             <Ionicons name='search' size={28} color={Colors.white}/>
             </View>)}}/>
         <Tabs.Screen name='discover' 

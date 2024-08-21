@@ -47,7 +47,7 @@ const home = () => {
 
     
     
-    <CategoryButtons/>
+    {/* <CategoryButtons/> */}
     </View>
     </>
   )

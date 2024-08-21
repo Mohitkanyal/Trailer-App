@@ -81,7 +81,7 @@ const styles = StyleSheet.create ({
 
     },
     filterBtn:{
-      backgroundColor:'#ff0f7b',
+      backgroundColor:Colors.black,
       padding:10,
       borderRadius:10,
       marginLeft:20,
