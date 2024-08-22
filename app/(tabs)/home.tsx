@@ -1,5 +1,5 @@
 import { View, Text ,StyleSheet, Image, TextInput } from 'react-native'
-import React from 'react'
+import React ,{useState}from 'react'
 import { Stack } from 'expo-router'
 import { TouchableOpacity } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
@@ -7,8 +7,17 @@ import Colors from '@/constants/Colors'
 import {useHeaderHeight} from '@react-navigation/elements';
 import { SearchBar } from 'react-native-screens'
 import CategoryButtons from '@/components/CategoryButtons';
+import Listings from '@/components/Listings';
+import listingData from '@/data/destination.json'
+
 const home = () => {
   const headerHeight=useHeaderHeight();
+  const [category, setCategory] = useState('All');
+  const onCatChanged = (category: string) => {
+
+    console.log("Category: ",category);
+    
+    setCategory(category);}
   return (
     <>
     <Stack.Screen options={{
@@ -47,7 +56,8 @@ const home = () => {
 
     
     
-    {/* <CategoryButtons/> */}
+    <CategoryButtons onCategoryChanged={onCatChanged}/>
+    <Listings listings={listingData} />
     </View>
     </>
   )
