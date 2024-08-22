@@ -38,9 +38,9 @@ const Listings = ({ listings}: Props) => {
             </View>
             <Text style={styles.itemtxt} numberOfLines={1} ellipsizeMode='tail'>{item.name}</Text>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-              <FontAwesome5 name='map-marker-alt' size={18} color={Colors.black} />
+              {/* <FontAwesome5 name='map-marker-alt' size={18} color={Colors.black} />
               <Text style={styles.locationtxt}>{item.location}</Text>
-              <Text style={styles.pricetxt}>${item.price}</Text>
+              <Text style={styles.pricetxt}>${item.price}</Text> */}
             </View>
           </View>
         </TouchableOpacity>
