@@ -25,8 +25,9 @@ const Indialist = ({ listings}: Props) => {
     }, [category]);
   const renderItems: ListRenderItem<ListingType> = ({ item }) => {
     return (
-      <Link href={`/listing/${item.id}`} asChild>
+      
       <GestureHandlerRootView style={styles.container}>
+        <Link href={`/listing/${item.id}`} asChild>
         <TouchableOpacity>
           <View style={styles.item}>
             <Image 
@@ -44,8 +45,9 @@ const Indialist = ({ listings}: Props) => {
             </View>
           </View>
         </TouchableOpacity>
+        </Link>
+
         </GestureHandlerRootView>
-      </Link>
     );
   };
 

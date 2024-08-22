@@ -11,6 +11,12 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
+  useFonts({
+    'outfit':require('./../assets/fonts/Outfit-Regular.ttf'),
+    'outfit-Medium':require('./../assets/fonts/Outfit-Medium.ttf'),
+    'outfit-ExtraBold':require('./../assets/fonts/Outfit-Bold.ttf'),
+    
+  })
 
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),

@@ -4,6 +4,7 @@ import {Tabs} from 'expo-router';
 import { FontAwesome, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import Colors  from '@/constants/Colors';
 const _layout = () => {
+  
   return (
     <Tabs screenOptions={{
         tabBarStyle:{
