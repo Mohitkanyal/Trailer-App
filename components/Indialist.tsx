@@ -13,7 +13,7 @@ type Props = {
   listings: any[]; // Better type definition
 };
 
-const Listings = ({ listings}: Props) => {
+const Indialist = ({ listings}: Props) => {
     const [loading, setLoading]  = useState(false);
     useEffect(() => {
         console.log('Update Listing');
@@ -62,7 +62,7 @@ const Listings = ({ listings}: Props) => {
   );
 };
 
-export default Listings;
+export default Indialist;
 
 const styles = StyleSheet.create({
   container:{
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '600',
     color: Colors.black,
-    marginLeft:65
+    marginLeft:35
   },
   locationtxt: {
     fontSize: 12,
