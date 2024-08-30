@@ -1,6 +1,6 @@
 import { View, Image, Text, StyleSheet, FlatList, ListRenderItem } from 'react-native';
 import React ,{useState,useEffect}from 'react';
-import { ListingType } from '@/Types/listingType';
+import { IndiaTypes } from '@/Types/IndiaTypes';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { ScrollView ,GestureHandlerRootView} from 'react-native-gesture-handler'
 
@@ -10,10 +10,10 @@ import { Link } from 'expo-router';
 import category from '@/app/(tabs)/home'
 
 type Props = {
-  listings: any[]; // Better type definition
+  listings: any[];
 };
 
-const Indialist = ({ listings}: Props) => {
+const IndiaList = ({ listings}: Props) => {
     const [loading, setLoading]  = useState(false);
     useEffect(() => {
         console.log('Update Listing');
@@ -23,7 +23,7 @@ const Indialist = ({ listings}: Props) => {
             setLoading(false)
     }, 200);
     }, [category]);
-  const renderItems: ListRenderItem<ListingType> = ({ item }) => {
+  const renderItems: ListRenderItem<IndiaTypes> = ({ item }) => {
     return (
       
       <GestureHandlerRootView style={styles.container}>
@@ -32,7 +32,7 @@ const Indialist = ({ listings}: Props) => {
           <View style={styles.item}>
             <Image 
               source={{ uri: item.image }}
-              style={styles.image} // Use styles.image instead of inline styles
+              style={styles.image} 
             />
             <View style={styles.bookmark}> 
               <Ionicons name='bookmark-outline' size={20} color={Colors.white} />
@@ -64,7 +64,7 @@ const Indialist = ({ listings}: Props) => {
   );
 };
 
-export default Indialist;
+export default IndiaList;
 
 const styles = StyleSheet.create({
   container:{

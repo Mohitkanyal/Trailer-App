@@ -82,12 +82,19 @@ const home = () => {
        
 
     <View>
+      <Text></Text>
       <Text style={styles.headingtxt}>International</Text>
+      <Text></Text>
+
     </View>
 
     <Listings listings={listingData} />
     <View>
+    <Text></Text>
+
       <Text style={styles.headingtxt}>India</Text>
+      <Text></Text>
+
     </View>
     <Indialist listings={IndiaList}/>
     </ScrollView>
