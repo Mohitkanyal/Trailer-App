@@ -9,13 +9,16 @@ import { SearchBar } from 'react-native-screens'
 import CategoryButtons from '@/components/CategoryButtons';
 import Listings from '@/components/Listings';
 import listingData from '@/data/destination.json'
-import IndiaList from '@/data/Indiadest.json'
 import Indialist from '@/components/Indialist'
+import IndiaData from '@/data/Indiadest.json'
+
 
 import { GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler'
 type Props = {
-  listings: any[]; // Better type definition
+  listings: any[]; 
+  Indialist:any[];
 };
+
 
 const home = () => {
   const headerHeight=useHeaderHeight();
@@ -96,7 +99,7 @@ const home = () => {
       <Text></Text>
 
     </View>
-    <Indialist listings={IndiaList}/>
+    <Indialist Indialist={IndiaData}/>
     </ScrollView>
     </GestureHandlerRootView>
     </View>

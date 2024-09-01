@@ -2,8 +2,8 @@ import { View, Text, Image, StyleSheet, Dimensions } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { Stack, useLocalSearchParams } from 'expo-router';
-import { ListingType } from '@/Types/listingType';
-import listingData from '@/data/destination.json';
+import { IndiaType } from '@/Types/IndiaTypes';
+import IndialistData from '@/data/Indiadest.json';
 import { GestureHandlerRootView, ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { Feather, FontAwesome5, Ionicons } from '@expo/vector-icons';
 import Colors from '@/constants/Colors';
@@ -11,9 +11,9 @@ import Colors from '@/constants/Colors';
 const { width } = Dimensions.get('window');
 const Img_Height =200
 
-const listingsDetails = () => {
-  const { id } = useLocalSearchParams();
-  const listing: ListingType = (listingData as ListingType[]).find((item) => item.id == id);
+const IndialistsDetails = () => {
+  const { ids } = useLocalSearchParams();
+  const Indialist: IndiaType = (IndialistData as IndiaType[]).find((item) => item.ids == ids);
   const navigation = useNavigation();
 
   return (
@@ -22,12 +22,12 @@ const listingsDetails = () => {
       <View style={styles.container}>
         <GestureHandlerRootView>
         <ScrollView contentContainerStyle={{paddingBottom:150}}>
-        <Image source={{ uri: listing.image }} style={styles.image} />
+        <Image source={{ uri: Indialist.image }} style={styles.image} />
         <View style={styles.contentwrapper}>
-          <Text style={styles.listingName}>{listing.name}</Text>
+          <Text style={styles.IndialistName}>{Indialist.name}</Text>
           <View style={styles.locationContainer}>
             <FontAwesome5 name="map-marker-alt" size={18} color={Colors.black} />
-            <Text style={styles.listinglocation}>{listing.location}</Text>
+            <Text style={styles.Indialistlocation}>{Indialist.location}</Text>
           </View>
           <View style={styles.highlightwrapper}>
             <View style={{ flexDirection: 'row' }}>
@@ -36,7 +36,7 @@ const listingsDetails = () => {
               </View>
               <View>
                 <Text style={styles.highlightTxt}>Duration</Text>
-                <Text style={styles.highlightTxtvalue}>{listing.duration} Days</Text>
+                <Text style={styles.highlightTxtvalue}>{Indialist.duration} Days</Text>
               </View>
             </View>
             <View style={{ flexDirection: 'row' }}>
@@ -45,7 +45,7 @@ const listingsDetails = () => {
               </View>
               <View>
                 <Text style={styles.highlightTxt}>Person</Text>
-                <Text style={styles.highlightTxtvalue}>{listing.duration} Days</Text>
+                <Text style={styles.highlightTxtvalue}>{Indialist.duration} Days</Text>
               </View>
             </View>
             <View style={{ flexDirection: 'row' }}>
@@ -54,21 +54,21 @@ const listingsDetails = () => {
               </View>
               <View>
                 <Text style={styles.highlightTxt}>Rating</Text>
-                <Text style={styles.highlightTxtvalue}>{listing.rating} Days</Text>
+                <Text style={styles.highlightTxtvalue}>{Indialist.rating} Days</Text>
               </View>
             </View>
           </View>
-          <Text style={styles.listingdetails}>{listing.description}</Text>
+          <Text style={styles.Indialistdetails}>{Indialist.description}</Text>
           
-          {listing.Day1 && <Text style={styles.itineraryTitle}>Itinerary</Text>}
+          {Indialist.Day1 && <Text style={styles.itineraryTitle}>Itinerary</Text>}
           
-          {listing.Day1 && <Text style={styles.itineraryText}>Day 1: {listing.Day1}</Text>}
-          {listing.Day2 && <Text style={styles.itineraryText}>Day 2: {listing.Day2}</Text>}
-          {listing.Day3 && <Text style={styles.itineraryText}>Day 3: {listing.Day3}</Text>}
-          {listing.Day4 && <Text style={styles.itineraryText}>Day 4: {listing.Day4}</Text>}
-          {listing.Day5 && <Text style={styles.itineraryText}>Day 5: {listing.Day5}</Text>}
-          {listing.Day6 && <Text style={styles.itineraryText}>Day 6: {listing.Day6}</Text>}
-          {listing.Day7 && <Text style={styles.itineraryText}>Day 7: {listing.Day7}</Text>}
+          {Indialist.Day1 && <Text style={styles.itineraryText}>Day 1: {Indialist.Day1}</Text>}
+          {Indialist.Day2 && <Text style={styles.itineraryText}>Day 2: {Indialist.Day2}</Text>}
+          {Indialist.Day3 && <Text style={styles.itineraryText}>Day 3: {Indialist.Day3}</Text>}
+          {Indialist.Day4 && <Text style={styles.itineraryText}>Day 4: {Indialist.Day4}</Text>}
+          {Indialist.Day5 && <Text style={styles.itineraryText}>Day 5: {Indialist.Day5}</Text>}
+          {Indialist.Day6 && <Text style={styles.itineraryText}>Day 6: {Indialist.Day6}</Text>}
+          {Indialist.Day7 && <Text style={styles.itineraryText}>Day 7: {Indialist.Day7}</Text>}
           
         </View>
         </ScrollView>
@@ -81,7 +81,7 @@ const listingsDetails = () => {
           </GestureHandlerRootView>
           <GestureHandlerRootView>
             <TouchableOpacity onPress={() => {}} style={[styles.footerBtn, styles.footerbookBtn]}>
-              <Text style={styles.footertxt}>${listing.price}</Text>
+              <Text style={styles.footertxt}>${Indialist.price}</Text>
             </TouchableOpacity>
           </GestureHandlerRootView>
         </View>
@@ -91,7 +91,7 @@ const listingsDetails = () => {
   );
 };
 
-export default listingsDetails;
+export default IndialistsDetails;
 
 const styles = StyleSheet.create({
   headercontainer:{
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
   contentwrapper: {
     padding: 20,
   },
-  listinglocation: {
+  Indialistlocation: {
     fontSize: 14,
     marginLeft: 5,
     color: Colors.black,
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     width: 370,
     height: Img_Height,
   },
-  listingName: {
+  IndialistName: {
     fontSize: 24,
     letterSpacing: 0.5,
     color: Colors.black,
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
   highlightTxtvalue: {
     fontSize: 14,
   },
-  listingdetails: {
+  Indialistdetails: {
     fontSize: 16,
     color: Colors.black,
     lineHeight: 25,

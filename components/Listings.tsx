@@ -32,7 +32,7 @@ const Listings = ({ listings}: Props) => {
           <View style={styles.item}>
             <Image 
               source={{ uri: item.image }}
-              style={styles.image} // Use styles.image instead of inline styles
+              style={styles.image} 
             />
             <View style={styles.bookmark}> 
               <Ionicons name='bookmark-outline' size={20} color={Colors.white} />
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginRight: 20,
     width: 220,
-    position: 'relative' // Ensures bookmark is positioned correctly
+    position: 'relative' 
   },
   image: {
     width: 200,
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   },
   bookmark: {
     position: 'absolute',
-    top: 10, // Adjusted to position correctly within the item view
+    top: 10, 
     right: 10,
     backgroundColor: Colors.black,
     padding: 10,

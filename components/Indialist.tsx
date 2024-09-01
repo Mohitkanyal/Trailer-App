@@ -1,6 +1,6 @@
 import { View, Image, Text, StyleSheet, FlatList, ListRenderItem } from 'react-native';
 import React ,{useState,useEffect}from 'react';
-import { IndiaTypes } from '@/Types/IndiaTypes';
+import { IndiaType } from '@/Types/IndiaTypes';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { ScrollView ,GestureHandlerRootView} from 'react-native-gesture-handler'
 
@@ -10,10 +10,10 @@ import { Link } from 'expo-router';
 import category from '@/app/(tabs)/home'
 
 type Props = {
-  listings: any[];
+  Indialist: any[];
 };
 
-const IndiaList = ({ listings}: Props) => {
+const Indialist = ({ Indialist}: Props) => {
     const [loading, setLoading]  = useState(false);
     useEffect(() => {
         console.log('Update Listing');
@@ -23,11 +23,11 @@ const IndiaList = ({ listings}: Props) => {
             setLoading(false)
     }, 200);
     }, [category]);
-  const renderItems: ListRenderItem<IndiaTypes> = ({ item }) => {
+  const renderItems: ListRenderItem<IndiaType> = ({ item }) => {
     return (
       
       <GestureHandlerRootView style={styles.container}>
-        <Link href={`/listing/${item.id}`} asChild>
+        <Link href={`../Indialist/${item.ids}`} asChild>
         <TouchableOpacity>
           <View style={styles.item}>
             <Image 
@@ -46,17 +46,17 @@ const IndiaList = ({ listings}: Props) => {
           </View>
         </TouchableOpacity>
         </Link>
-
         </GestureHandlerRootView>
+    
     );
   };
 
   return (
     <View>
       <FlatList
-        data={loading?[]:listings}
+        data={loading?[]:Indialist}
         renderItem={renderItems}
-        keyExtractor={item => item.id.toString()}
+        keyExtractor={item => item.ids.toString()}
         horizontal
         showsHorizontalScrollIndicator={false}
       />
@@ -64,7 +64,7 @@ const IndiaList = ({ listings}: Props) => {
   );
 };
 
-export default IndiaList;
+export default Indialist;
 
 const styles = StyleSheet.create({
   container:{
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '600',
     color: Colors.black,
-    marginLeft:35
+    marginLeft:65
   },
   locationtxt: {
     fontSize: 12,
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginRight: 20,
     width: 220,
-    position: 'relative' // Ensures bookmark is positioned correctly
+    position: 'relative' 
   },
   image: {
     width: 200,
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   },
   bookmark: {
     position: 'absolute',
-    top: 10, // Adjusted to position correctly within the item view
+    top: 10, 
     right: 10,
     backgroundColor: Colors.black,
     padding: 10,

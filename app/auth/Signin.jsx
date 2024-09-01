@@ -43,7 +43,7 @@ export default function Signin() {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backBtn}>
+      <TouchableOpacity onPress={() => navigation.goBack('../(tabs)/profile')} style={styles.backBtn}>
         <Ionicons name='arrow-back' size={24} color='black' />
       </TouchableOpacity>
 
